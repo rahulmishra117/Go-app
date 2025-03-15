@@ -20,7 +20,7 @@ func GetAllItems(items *[]models.Item) error {
 
 // GetItemByID - Fetches a single item by ID
 func GetItemByID(id uuid.UUID, item *models.Item) error {
-	return config.DB.Where("id = ? AND deleted_at IS NULL", id).First(item).Error
+	return config.DB.Where("id = ?", id).First(item).Error
 }
 
 // UpdateItem - Updates an existing item
@@ -35,5 +35,5 @@ func DeleteItem(id uint) error {
 	return result.Error
 }
 func SoftDeleteItem(id uuid.UUID) error {
-	return config.DB.Model(&models.Item{}).Where("id = ?", id).Update("deleted_at", "NOW()").Error
+	return config.DB.Where("id = ?", id).Delete(&models.Item{}).Error
 }

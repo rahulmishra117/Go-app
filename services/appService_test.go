@@ -17,16 +17,15 @@ import (
 	"gorm.io/gorm"
 )
 
-// Mock Redis Client
 type MockRedisClient struct {
 	mock.Mock
-	redis.Cmdable // Implements Redis interface
+	redis.Cmdable
 }
 
 func (m *MockRedisClient) Get(ctx context.Context, key string) *redis.StringCmd {
 	args := m.Called(ctx, key)
 	cmd := redis.NewStringCmd(ctx)
-	cmd.SetVal(args.String(0)) // Mocked response
+	cmd.SetVal(args.String(0))
 	cmd.SetErr(args.Error(1))
 	return cmd
 }

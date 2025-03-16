@@ -22,6 +22,7 @@ import (
 // @Router /items/ [post]
 func CreateItem(c *gin.Context) {
 	var item models.Item
+	item.ID = uuid.New() // Assign a new UUID
 	if err := c.ShouldBindJSON(&item); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
@@ -55,7 +56,7 @@ func GetAllItems(c *gin.Context) {
 // @Description Retrieves an item by its ID
 // @Tags Items
 // @Produce json
-// @Param id path string true "Item ID"
+// @Param id path string true "Item ID (UUID)"
 // @Success 200 {object} models.Item
 // @Failure 400 {object} map[string]string
 // @Failure 404 {object} map[string]string
@@ -102,6 +103,7 @@ func UpdateItem(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
+	updatedItem.ID = id // Ensure UUID consistency
 	if err := services.UpdateItem(id, &updatedItem); err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return

@@ -109,8 +109,8 @@ const docTemplate = `{
                 "summary": "Get an item by ID",
                 "parameters": [
                     {
-                        "type": "integer",
-                        "description": "Item ID",
+                        "type": "string",
+                        "description": "Item ID (UUID)",
                         "name": "id",
                         "in": "path",
                         "required": true
@@ -157,7 +157,7 @@ const docTemplate = `{
                 "summary": "Update an item",
                 "parameters": [
                     {
-                        "type": "integer",
+                        "type": "string",
                         "description": "Item ID",
                         "name": "id",
                         "in": "path",
@@ -214,7 +214,7 @@ const docTemplate = `{
                 "summary": "Delete an item",
                 "parameters": [
                     {
-                        "type": "integer",
+                        "type": "string",
                         "description": "Item ID",
                         "name": "id",
                         "in": "path",

@@ -1,8 +1,6 @@
 definitions:
   models.Item:
     properties:
-      id:
-        type: string
       name:
         type: string
       price:
@@ -73,7 +71,7 @@ paths:
         in: path
         name: id
         required: true
-        type: integer
+        type: string
       produces:
       - application/json
       responses:
@@ -95,11 +93,11 @@ paths:
     get:
       description: Retrieves an item by its ID
       parameters:
-      - description: Item ID
+      - description: Item ID (UUID)
         in: path
         name: id
         required: true
-        type: integer
+        type: string
       produces:
       - application/json
       responses:
@@ -131,7 +129,7 @@ paths:
         in: path
         name: id
         required: true
-        type: integer
+        type: string
       - description: Updated Item Data
         in: body
         name: item

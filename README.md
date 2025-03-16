@@ -1,9 +1,9 @@
 # Golang CRUD API with Gin & GORM
 
-## 📌 API Overview  
+##  API Overview  
 A simple **CRUD API** built with **Golang**, **Gin**, and **GORM** for managing items in a PostgreSQL database.  
 
-## 🚀 API Endpoints  
+## API Endpoints  
 
 ### **1️⃣ Create an Item**  
 **POST** `/items/`  
@@ -34,16 +34,12 @@ A simple **CRUD API** built with **Golang**, **Gin**, and **GORM** for managing 
 ### **5️⃣ Delete an Item (Soft Delete)**  
 **DELETE** `/items/{id}`  
 
-## 🏗️ Setup & Run  
+##  Setup & Run  
 1. **Install dependencies:**  
    ```bash
    go mod tidy
    ```  
-2. **Set up PostgreSQL and create the database:**  
-   ```sql
-   CREATE DATABASE mygoitems;
-   ```  
-3. **Run the server:**  
+2. **Run the server:**  
    ```bash
    go run main.go
    ```  

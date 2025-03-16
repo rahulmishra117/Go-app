@@ -5,7 +5,6 @@ import (
 	"github.com/rahulmishra/go-crud-app/controllers"
 )
 
-// SetupItemRoutes - Registers item routes
 func SetupItemRoutes(router *gin.Engine) {
 	itemRoutes := router.Group("/items")
 	{

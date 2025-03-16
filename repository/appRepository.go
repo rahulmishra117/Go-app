@@ -1,6 +1,8 @@
 package repository
 
 import (
+	"errors"
+
 	"github.com/google/uuid"
 	"github.com/rahulmishra/go-crud-app/config"
 	"github.com/rahulmishra/go-crud-app/models"
@@ -35,5 +37,8 @@ func DeleteItem(id uint) error {
 	return result.Error
 }
 func SoftDeleteItem(id uuid.UUID) error {
+	if config.DB == nil {
+		return errors.New("database is not initialized")
+	}
 	return config.DB.Where("id = ?", id).Delete(&models.Item{}).Error
 }

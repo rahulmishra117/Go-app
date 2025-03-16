@@ -34,3 +34,6 @@ func ConnectDatabase() {
 	DB = db
 	fmt.Println("Database connection established!")
 }
+func SetDB(mockDB *gorm.DB) {
+	DB = mockDB
+}

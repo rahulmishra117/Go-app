@@ -7,7 +7,7 @@ import (
 	"github.com/redis/go-redis/v9"
 )
 
-var RedisClient *redis.Client
+var RedisClient redis.Cmdable
 
 func ConnectRedis() {
 	RedisClient = redis.NewClient(&redis.Options{
@@ -22,4 +22,7 @@ func ConnectRedis() {
 	} else {
 		fmt.Println("Connected to Redis successfully!")
 	}
+}
+func SetRedisClient(mockClient redis.Cmdable) {
+	RedisClient = mockClient
 }

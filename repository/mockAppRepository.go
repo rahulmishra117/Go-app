@@ -6,7 +6,6 @@ import (
 	"github.com/stretchr/testify/mock"
 )
 
-// MockAppRepository is a mock for repository functions
 type MockAppRepository struct {
 	mock.Mock
 }

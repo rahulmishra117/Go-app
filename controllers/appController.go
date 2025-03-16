@@ -22,7 +22,7 @@ import (
 // @Router /items/ [post]
 func CreateItem(c *gin.Context) {
 	var item models.Item
-	item.ID = uuid.New() // Assign a new UUID
+	item.ID = uuid.New()
 	if err := c.ShouldBindJSON(&item); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
@@ -103,7 +103,7 @@ func UpdateItem(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-	updatedItem.ID = id // Ensure UUID consistency
+	updatedItem.ID = id
 	if err := services.UpdateItem(id, &updatedItem); err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return

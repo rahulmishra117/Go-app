@@ -48,13 +48,3 @@ A simple **CRUD API** built with **Golang**, **Gin**, and **GORM** for managing 
    go run main.go
    ```  
    Server runs on **`http://localhost:8080`**  
-
-## 🐳 Run with Docker (Optional)  
-```bash
-docker build -t my-go-app .
-docker run -p 8080:8080 --env-file .env my-go-app
-```
-
----
-
-Made with ❤️ in Golang 🚀
